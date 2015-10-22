@@ -1,0 +1,23 @@
+{
+  "name": "etl-on-a-table",
+  "version": "0.0.1",
+  "description": "Just HomeWork, the idea is to fetch a HTML Document and then store it and then do a ETL translation to store as a DataWarehouse",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sierisimo/ETLOnATable.git"
+  },
+  "keywords": [
+    "homework",
+    "etl"
+  ],
+  "author": "Sierisimo Sier",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sierisimo/ETLOnATable/issues"
+  },
+  "homepage": "https://github.com/sierisimo/ETLOnATable#readme"
+}
