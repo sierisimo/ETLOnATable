@@ -1,0 +1,10 @@
+(function() {
+    var should = require("should"),
+      plus = require("../plus");
+
+    describe("This is just a test", function() {
+        it("2 plus 3 should equals 5", function() {
+          plus(2, 3).should.be.exactly(5).and.be.a.Number;
+        });
+    });
+}).call(this);
