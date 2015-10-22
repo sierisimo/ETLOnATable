@@ -4,7 +4,7 @@
   "description": "Just HomeWork, the idea is to fetch a HTML Document and then store it and then do a ETL translation to store as a DataWarehouse",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/sierisimo/ETLOnATable/issues"
   },
-  "homepage": "https://github.com/sierisimo/ETLOnATable#readme"
+  "homepage": "https://github.com/sierisimo/ETLOnATable#readme",
+  "dependencies": {
+    "jsdom": "^7.0.1",
+    "pg": "^4.4.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  }
 }
