@@ -7,7 +7,7 @@ function checkForData(){
       fetcher.fetch(resolve, reject);
   });
 
-  promise.then(function(data){
+  promise.then(function(dataObj){
 
   }, function(err){
 
@@ -17,6 +17,6 @@ function checkForData(){
 setInterval(function () {
   debug("Launching for new data");
   checkForData();
-}, 1000 * 60); //Run this function every milliseconds * seconds * minutes * hours
+}, 1000 * 5); //Run this function every milliseconds * seconds * minutes * hours
 
 exports.check = checkForData;
