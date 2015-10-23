@@ -3,3 +3,5 @@ node_js:
     - "4.1"
 script:
     - make test
+env:
+    - DEBUG=app
