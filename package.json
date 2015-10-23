@@ -25,6 +25,7 @@
     "pg": "^4.4.3"
   },
   "devDependencies": {
+    "debug": "^2.2.0",
     "gulp": "^3.9.0",
     "mocha": "^2.3.3",
     "should": "^7.1.1"
