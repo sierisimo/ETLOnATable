@@ -1,3 +1,13 @@
+var should = require('should'),
+    app = require('../app');
+
+describe("The app should exist", function(){
+  it("Should be a non-null or non-undefined object", function(){
+    should(app).not.be.Undefined();
+  });
+});
+
+/*
 (function() {
     var should = require("should"),
       plus = require("../plus");
@@ -8,3 +18,4 @@
         });
     });
 }).call(this);
+*/
