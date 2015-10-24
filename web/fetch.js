@@ -1,6 +1,5 @@
 var jsdom = require("jsdom"),
-  debugConstructor = require("debug"),
-  debug = debugConstructor("fetcher"),
+  debug = require("debug")("fetcher"),
   wikiUrl = "https://en.wikipedia.org/wiki/Highest-income_metropolitan_statistical_areas_in_the_United_States";
 
 function fetchTable(resolve, reject) {
@@ -15,13 +14,17 @@ function fetchTable(resolve, reject) {
         debug("Checking the fetched data...");
         var document = window.document,
           table = document.getElementsByClassName('toccolours')
-            .item(0)
-            .getElementsByTagName('tbody').item(0);
+          .item(0)
+          .getElementsByTagName('tbody').item(0);
 
         debug("Data fetched, <tbody> found!");
         debug("Sending data to parse...");
 
-        resolve({data:table, document: document});
+        resolve({
+          data: table,
+          document: document,
+          window: window //Send the window to call window.close() to release after parsing
+        });
       }
     }
   });
