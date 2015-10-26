@@ -1,11 +1,11 @@
 {
   "name": "etl-on-a-table",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Just HomeWork, the idea is to fetch a HTML Document and then store it and then do a ETL translation to store as a DataWarehouse",
   "main": "app.js",
   "scripts": {
     "test": "make test",
-    "start": "DEBUG=app,fetcher node app.js"
+    "start": "DEBUG=app,fetcher,parser node app.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/sierisimo/ETLOnATable#readme",
   "dependencies": {
-    "jsdom": "^7.0.1",
+    "jsdom": "^7.0.2",
     "pg": "^4.4.3"
   },
   "devDependencies": {
