@@ -28,7 +28,26 @@ describe("Check the URL and his content", function() {
 });
 
 describe("Parse the HTML from the table", function() {
+  var parsedData;
+
   it("Parse the data and return it as Array of JSON", function() {
-    should(valueFromFetcher).not.be.Undefined();
+    var parser = require('../web/parse');
+
+    parsedData = parser.parseTable(valueFromFetcher);
+
+    should(parsedData).not.be.Undefined();
+
+    parsedData.should.be.Array();
+  });
+
+  it("Should have a length greater than 200", function(){
+    parsedData.length.should.be.above(200);
+  });
+
+  it("Should have only a lot of JSON and only JSON of certain form", function(){
+    for(var l = parsedData.length, i = l; i--;){
+      parsedData[i].should.not.be.Undefined();
+      parsedData[i].should.have.keys(['id','area','population','median']);
+    }
   });
 });
