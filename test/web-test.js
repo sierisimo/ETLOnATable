@@ -1,5 +1,6 @@
-var should = require('should'),
-  app = require('../app');
+var should = require('should');
+
+var valueFromFetcher;
 
 describe("Check the URL and his content", function() {
   it("Fetcher should return a object with 'data' and 'document'. Also, data has to be <tbody>", function(done) {
@@ -14,6 +15,8 @@ describe("Check the URL and his content", function() {
 
       val.window.close();
 
+      valueFromFetcher = val;
+
       done();
     }, function(err) {
       err.should.not.be.Undefined();
@@ -21,5 +24,11 @@ describe("Check the URL and his content", function() {
 
       done(err);
     });
+  });
+});
+
+describe("Parse the HTML from the table", function() {
+  it("Parse the data and return it as Array of JSON", function() {
+    should(valueFromFetcher).not.be.Undefined();
   });
 });
