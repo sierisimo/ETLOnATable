@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/sierisimo/ETLOnATable#readme",
   "dependencies": {
-    "jsdom": "^7.0.1",
+    "jsdom": "^7.0.2",
     "pg": "^4.4.3"
   },
   "devDependencies": {
