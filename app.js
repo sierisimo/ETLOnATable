@@ -26,6 +26,6 @@ function checkForData() {
 setInterval(function() {
   debug("Launching for new data");
   checkForData();
-}, 1000 * 5); //Run this function every milliseconds * seconds * minutes * hours
+}, 1000 * 50); //Run this function every milliseconds * seconds * minutes * hours
 
 exports.check = checkForData;
