@@ -1,31 +1,26 @@
 var debug = require('debug')('app');
 
 function checkForData() {
-  var fetcher = require('./web/fetch'),
-    parser = require('./web/parse'),
-    promise = new Promise(function(resolve, reject) {
-      fetcher.fetch(resolve, reject);
-    });
+  debug("Launching for new data");
 
-  promise.then(function(dataObj) {
-    debug("Data is ready, calling to parse");
-    return parser.parseTable(dataObj);
-  }, function(err) {
-    debug("Error Ocurred at promise when fetching:");
-    debug(err);
-  }).then(function(parsedArr){
-    debug("Parsing finished, calling Database");
+  var promise = new Promise(require('./web/fetch').fetch);
 
-    //TODO:
-  }, function(err){
-    debug("Error Ocurred at promise when parsing:");
-    debug(err);
-  });
+  promise
+    .then(require('./web/parse').parseTable, errorBinder("web/fetch"))
+    .then(require('./db/writer').write, errorBinder("db/parse"))
+    .then(function() {
+
+    }, errorBinder("db/writer"));
 }
 
-setInterval(function() {
-  debug("Launching for new data");
-  checkForData();
-}, 1000 * 50); //Run this function every milliseconds * seconds * minutes * hours
+function errorBinder(name) {
+  return function(err) {
+    debug("Error Ocurred at: " + name + " the promise stopped");
+    debug(err);
+  };
+}
+
+//Run this function every milliseconds * seconds * minutes * hours
+setInterval(checkForData, 1000 * 10);
 
 exports.check = checkForData;

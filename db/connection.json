@@ -1,0 +1,10 @@
+{
+  "user":"postgres",
+  "database":"etl_homework",
+  "port":5432,
+  "host":"localhost",
+  "tables":{
+    "main":"",
+    "etl":""
+  }
+}
