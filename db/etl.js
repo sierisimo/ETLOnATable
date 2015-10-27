@@ -14,11 +14,13 @@ function transformDB(arrData) {
       });
     };
 
+    debug("Writed to OLTP");
     stmt.finalize();
-
+    debug("Extracting the data...");
     db.all("SELECT * FROM metropolitan_statistical_by_income", function(err, rows) {
       var etlStmt = db.prepare("INSERT OR REPLACE INTO metropolitan_transformed(rank, population, state, area, median) VALUES(?,?,?,?,?)");
 
+      debug("Transforming information...");
       rows.forEach(function(row, index, arr) {
         var resultObj = {},
           area = row.metropolitan_statistical_area.split(","),
@@ -40,6 +42,8 @@ function transformDB(arrData) {
       });
 
       etlStmt.finalize();
+
+      debug("Data transformed");
 
       db.close();
     });
