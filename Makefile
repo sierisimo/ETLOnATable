@@ -1,4 +1,4 @@
-DEBUG=app,fetcher,parser
+DEBUG=*
 
 test:
 	@./node_modules/.bin/mocha --timeout 10000 --reporter spec

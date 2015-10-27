@@ -1,0 +1,18 @@
+BEGIN TRANSACTION;
+
+CREATE TABLE IF NOT EXISTS metropolitan_statistical_by_income(
+  rank INTEGER PRIMARY KEY,
+  metropolitan_statistical_area TEXT NOT NULL,
+  population NUMBER NOT NULL,
+  median_household_income NUMBER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS metropolitan_transformed(
+  rank INTEGER,
+  population NUMBER,
+  state TEXT,
+  area TEXT,
+  median NUMBER
+);
+
+COMMIT;

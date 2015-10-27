@@ -4,10 +4,12 @@ function parseTable(dataObj) {
   var trArr = dataObj.data.getElementsByTagName('TR'),
     tdArr = [];
 
+  debug("Data is ready, calling to parse");
+
   for (var i = 0; i < trArr.length; i++) {
     tdArr.push(trArr.item(i).getElementsByTagName('TD'));
   }
-  
+
   //FIXME: Strange, the first element is a NodeList with null elements...
   tdArr.shift();
 
@@ -25,6 +27,8 @@ function parseTable(dataObj) {
   delete dataObj.data;
   delete dataObj.document;
   delete dataObj.window;
+
+  debug("Parsing finished!");
 
   return tdArr;
 }
