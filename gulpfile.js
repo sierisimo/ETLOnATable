@@ -1,5 +1,7 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+  browserify = require('browserify'),
+  uglify = require('gulp-uglify');
 
 gulp.task('default', function() {
-    console.log(2+3)
+  console.log(2 + 3)
 });
