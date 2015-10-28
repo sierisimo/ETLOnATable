@@ -20,7 +20,14 @@ function errorBinder(name) {
   };
 }
 
+debug("Program started at:", new Date());
+
 //Run this function every milliseconds * seconds * minutes * hours
-setInterval(checkForData, 1000 * 60 * 3);
+if (!!process.argv[2] && !Number.isNaN(Number.parseInt(process.argv[2]))) {
+  setInterval(checkForData, 1000 * 60 * Number.parseInt(process.argv[2]));
+} else {
+  setInterval(checkForData, 1000 * 60 * 60 * 24);
+}
+
 
 exports.check = checkForData;
